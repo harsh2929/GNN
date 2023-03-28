@@ -78,3 +78,11 @@ def parameter_parser():
 	                help="Reconstruction loss weight. Default is 0.1.")
 
     return parser.parse_args()
+    
+    # Check if the train and test folders exist
+    if not os.path.exists(args.train_graph_folder):
+        raise ValueError(f"Train folder '{args.train_graph_folder}' does not exist.")
+    if not os.path.exists(args.test_graph_folder):
+        raise ValueError(f"Test folder '{args.test_graph_folder}' does not exist.")
+    
+    return args
